@@ -29,7 +29,10 @@
     "vue": "^3.2.37",
     "vue-good-table-next": "^0.2.1",
     "vue-simple-context-menu": "^4.0.4",
-    "vue-universal-modal": "^1.1.4"
+    "vue-universal-modal": "^1.1.4",
+    "xterm": "^5.1.0",
+    "xterm-addon-attach": "^0.8.0",
+    "xterm-addon-fit": "^0.7.0"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.1.0",

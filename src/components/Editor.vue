@@ -290,6 +290,9 @@ export default defineComponent({
                 }
             }
         },
+        dispose() {
+            // Dispose
+        },
     },
     mounted() {
         console.log('Editor.mounted');

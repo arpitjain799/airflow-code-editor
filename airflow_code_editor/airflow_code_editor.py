@@ -21,6 +21,7 @@ from airflow_code_editor.commons import STATIC, VERSION
 from airflow_code_editor.utils import is_enabled
 from airflow_code_editor.flask_admin_view import admin_view
 from airflow_code_editor.app_builder_view import appbuilder_view
+from airflow_code_editor.webshell import init_webshell
 
 __author__ = 'Andrea Bonomi <andrea.bonomi@gmail.com>'
 __version__ = VERSION
@@ -37,7 +38,6 @@ code_editor_plugin_blueprint = Blueprint(
     static_url_path=STATIC,
 )
 
-
 # Plugin
 class CodeEditorPlugin(AirflowPlugin):
     name = 'editor_plugin'
@@ -48,3 +48,7 @@ class CodeEditorPlugin(AirflowPlugin):
     admin_views = [admin_view] if (is_enabled() and admin_view is not None) else []
     menu_links = []
     appbuilder_views = [appbuilder_view] if is_enabled() else []
+
+
+# Webshell
+init_webshell(code_editor_plugin_blueprint)

@@ -63,9 +63,7 @@ class AbstractCodeEditorView(object):
             logging.error(ex)
             return prepare_api_response(
                 path=normalize_path(path),
-                error_message="Error saving {path}: {message}".format(
-                    path=path, message=error_message(ex)
-                ),
+                error_message="Error saving {path}: {message}".format(path=path, message=error_message(ex)),
             )
 
     def _git_repo(self, path):
@@ -84,9 +82,7 @@ class AbstractCodeEditorView(object):
             attachment_filename = None
         response = execute_git_command(["cat-file", "-p", path]).prepare_git_response()
         if attachment_filename:
-            content_disposition = 'attachment; filename="{0}"'.format(
-                attachment_filename
-            )
+            content_disposition = 'attachment; filename="{0}"'.format(attachment_filename)
             response.headers["Content-Disposition"] = content_disposition
             try:
                 content_type = mimetypes.guess_type(attachment_filename)[0]
@@ -140,11 +136,7 @@ class AbstractCodeEditorView(object):
             )
         except Exception as ex:
             logging.error(ex)
-            return prepare_api_response(
-                error_message="Error formatting: {message}".format(
-                    message=error_message(ex)
-                )
-            )
+            return prepare_api_response(error_message="Error formatting: {message}".format(message=error_message(ex)))
 
     def _tree(self, path, args={}):
         try:
